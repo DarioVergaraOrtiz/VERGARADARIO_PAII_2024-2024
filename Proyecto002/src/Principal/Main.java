@@ -1,14 +1,19 @@
 package Principal;
 
-/**
- * @author Dario Vergara
- * Titulo: Inversión de dependencias
- */
+import java.awt.EventQueue;
 
 public class Main {
-	public static void main(String[] args) {
-		DibujoRapido a = new DibujoRapido(new Triangulo());
-		DibujoRapido b = new DibujoRapido(new Cuadrado());
-		DibujoRapido c = new DibujoRapido(new Circulo());
-	}
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                Ventana frame = new Ventana();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+    
+
 }
