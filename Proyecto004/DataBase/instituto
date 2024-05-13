@@ -1,0 +1,29 @@
+CREATE TABLE alumno (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    lastname VARCHAR(50),
+    age INT
+);
+
+CREATE TABLE profesor (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    lastname VARCHAR(50),
+    age INT
+);
+
+CREATE TABLE materia (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    descripcion TEXT,
+    level INT
+);
+
+CREATE TABLE horario (
+    id_mat INT REFERENCES materia(id),
+    id_alum INT REFERENCES alumno(id),
+    id_profesor INT REFERENCES profesor(id),
+    hora_inicio TIME,
+    hora_fin TIME,
+    dia VARCHAR(10)
+);
